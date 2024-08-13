@@ -32,7 +32,7 @@ export default function ImprovedRankingDeIdeas() {
       .filter((pet) => {
         if (searchTerm) {
           return pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                 pet.hashtag.toLowerCase().includes(searchTerm.toLowerCase());
+            pet.hashtag.toLowerCase().includes(searchTerm.toLowerCase());
         }
         return true;
       })
@@ -55,8 +55,8 @@ export default function ImprovedRankingDeIdeas() {
 
   return (
     <div className="max-w-4xl mx-auto mt-8 bg-white border border-slate-200 py-6 px-8 rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold mb-6 text-center">Los Mejores Nombres para tu Mascota de 2024</h1>
-      
+      <h1 className="text-3xl font-bold mb-6 text-center">Los mejores nombres para tu Mascota de 2024</h1>
+
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center">
           <Filter className="mr-2" />
@@ -69,7 +69,7 @@ export default function ImprovedRankingDeIdeas() {
             <option value="less">10 votos o menos</option>
           </select>
         </div>
-        
+
         <div className="flex items-center">
           <ArrowUpDown className="mr-2" />
           <select
