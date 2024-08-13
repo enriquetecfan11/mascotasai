@@ -103,5 +103,75 @@
     "hashtag": "#fish, #goldfish, #swimmer",
     "date": "2021-03-01",
     "votes": 14
+  },
+  {
+    "id": "16",
+    "name": "Bella",
+    "hashtag": "#dog, #puppy, #lovely",
+    "date": "2024-08-13",
+    "votes": 20
+  },
+  {
+    "id": "17",
+    "name": "Simba",
+    "hashtag": "#cat, #kitten, #playful",
+    "date": "2024-08-13",
+    "votes": 18
+  },
+  {
+    "id": "18",
+    "name": "Thumper",
+    "hashtag": "#rabbit, #bunny, #hoppy",
+    "date": "2024-08-13",
+    "votes": 12
+  },
+  {
+    "id": "19",
+    "name": "Polly",
+    "hashtag": "#parrot, #colorful, #talkative",
+    "date": "2024-08-13",
+    "votes": 25
+  },
+  {
+    "id": "20",
+    "name": "Max",
+    "hashtag": "#dog, #guard, #brave",
+    "date": "2024-08-13",
+    "votes": 30
+  },
+  {
+    "id": "21",
+    "name": "Mittens",
+    "hashtag": "#cat, #elegant, #graceful",
+    "date": "2024-08-13",
+    "votes": 22
+  },
+  {
+    "id": "22",
+    "name": "Snowball",
+    "hashtag": "#rabbit, #soft, #cute",
+    "date": "2024-08-13",
+    "votes": 15
+  },
+  {
+    "id": "23",
+    "name": "Charlie",
+    "hashtag": "#dog, #loyal, #friendly",
+    "date": "2024-08-13",
+    "votes": 17
+  },
+  {
+    "id": "24",
+    "name": "Nibbles",
+    "hashtag": "#hamster, #tiny, #active",
+    "date": "2024-08-13",
+    "votes": 10
+  },
+  {
+    "id": "25",
+    "name": "Lola",
+    "hashtag": "#parrot, #talkative, #colorful",
+    "date": "2024-08-13",
+    "votes": 19
   }
 ]
