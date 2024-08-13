@@ -21,13 +21,6 @@ const SidebarRight = () => {
           </Link>
         </li>
         <li>
-          <Link href="/ideas-mas-votadas" legacyBehavior>
-            <a className="block p-2 text-gray-700 hover:bg-gray-200 rounded">
-              🟢 Ideas más Votadas
-            </a>
-          </Link>
-        </li>
-        <li>
           <Link href="/categoria-de-ideas" legacyBehavior>
             <a className="block p-2 text-gray-700 hover:bg-gray-200 rounded">
               📒 Categorías de Ideas
