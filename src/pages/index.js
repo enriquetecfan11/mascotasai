@@ -1,78 +1,121 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Star, Filter, ArrowUpDown } from 'lucide-react';
 import petNames from '../assets/pet-names.json';
 
-export default function RankingDeIdeas() {
-  const [votes, setVotes] = useState(
-    petNames.reduce((acc, pet) => {
-      acc[pet.id] = pet.votes;
-      return acc;
-    }, {})
-  );
+const petIcons = {
+  dog: '🐶',
+  cat: '🐱',
+  rabbit: '🐰',
+  parrot: '🦜',
+  // Add more as needed
+};
 
+export default function ImprovedRankingDeIdeas() {
+  const [votes, setVotes] = useState({});
   const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('votes');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    const storedVotes = JSON.parse(localStorage.getItem('petVotes')) || {};
+    setVotes(storedVotes);
+  }, []);
 
   const handleVote = (id) => {
-    setVotes({
-      ...votes,
-      [id]: votes[id] + 1
-    });
+    const newVotes = { ...votes, [id]: (votes[id] || 0) + 1 };
+    setVotes(newVotes);
+    localStorage.setItem('petVotes', JSON.stringify(newVotes));
   };
 
-  const sortedPetNames = () => {
-    if (filter === 'upvotes') {
-      return [...petNames].sort((a, b) => votes[b.id] - votes[a.id]);
-    } else if (filter === 'downvotes') {
-      return [...petNames].sort((a, b) => votes[a.id] - votes[b.id]);
-    }
-    return petNames;
+  const sortedAndFilteredPetNames = () => {
+    return petNames
+      .filter((pet) => {
+        if (searchTerm) {
+          return pet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                 pet.hashtag.toLowerCase().includes(searchTerm.toLowerCase());
+        }
+        return true;
+      })
+      .sort((a, b) => {
+        if (sort === 'votes') return (votes[b.id] || 0) - (votes[a.id] || 0);
+        if (sort === 'date') return new Date(b.date) - new Date(a.date);
+        return 0;
+      })
+      .filter((pet) => {
+        if (filter === 'more') return (votes[pet.id] || 0) > 10;
+        if (filter === 'less') return (votes[pet.id] || 0) <= 10;
+        return true;
+      });
   };
 
-  const filteredPetNames = sortedPetNames().filter((pet) => {
-    if (filter === 'more') {
-      return votes[pet.id] > 10;
-    } else if (filter === 'less') {
-      return votes[pet.id] <= 10;
-    }
-    return true;
-  });
+  const getPetIcon = (hashtags) => {
+    const petType = hashtags.find(tag => petIcons[tag.slice(1)]);
+    return petIcons[petType?.slice(1)] || '🐾';
+  };
 
   return (
     <div className="max-w-4xl mx-auto mt-8 bg-white border border-slate-200 py-6 px-8 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Los Mejores 10 nombres para tu mascota de 2024</h1>
-      <div className="flex justify-center mb-6">
-        <select
-          onChange={(e) => setFilter(e.target.value)}
-          className="py-2 px-4 mx-2 rounded-lg bg-gray-200 text-gray-800"
-        >
-          <option value="all">Todos</option>
-          <option value="upvotes">Más votos</option>
-          <option value="downvotes">Menos votos</option>
-        </select>
-      </div>
-
-      {/* Map through filtered petNames array */}
-      {filteredPetNames.map((pet) => (
-        <div key={pet.id} className="flex justify-between items-center py-3 px-4 mb-3 border last:border-b-0 transition-transform transform hover:scale-105 rounded-lg bg-gray-50 hover:bg-gray-100">
-          <div className="flex items-center">
-            <div className="w-16 h-16 flex items-center justify-center border border-gray-300 rounded-full mr-4">
-              <span role="img" aria-label="pet" className="text-3xl">🐶</span>
-            </div>
-            <div>
-              <span className="block text-lg font-medium">{pet.name}</span>
-              <span className="block text-sm text-gray-500">{pet.hashtag}</span>
-              <span className="block text-sm text-gray-400">Date Added: {new Date(pet.date).toLocaleDateString()}</span>
-              <span className="block text-sm text-gray-400">Votes: {votes[pet.id]}</span>
-            </div>
-          </div>
-          <button
-            onClick={() => handleVote(pet.id)}
-            className="ml-auto bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors"
+      <h1 className="text-3xl font-bold mb-6 text-center">Los Mejores Nombres para tu Mascota de 2024</h1>
+      
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex items-center">
+          <Filter className="mr-2" />
+          <select
+            onChange={(e) => setFilter(e.target.value)}
+            className="py-2 px-4 rounded-lg bg-gray-100 text-gray-800 border border-gray-300"
           >
-            Votar
-          </button>
-          <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+            <option value="all">Todos</option>
+            <option value="more">Más de 10 votos</option>
+            <option value="less">10 votos o menos</option>
+          </select>
         </div>
         
+        <div className="flex items-center">
+          <ArrowUpDown className="mr-2" />
+          <select
+            onChange={(e) => setSort(e.target.value)}
+            className="py-2 px-4 rounded-lg bg-gray-100 text-gray-800 border border-gray-300"
+          >
+            <option value="votes">Ordenar por votos</option>
+            <option value="date">Ordenar por fecha</option>
+          </select>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        placeholder="Buscar nombres o etiquetas..."
+        className="w-full py-2 px-4 mb-6 rounded-lg bg-gray-100 border border-gray-300"
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      {sortedAndFilteredPetNames().map((pet) => (
+        <div key={pet.id} className="flex justify-between items-center py-4 px-6 mb-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-300 transform hover:scale-102">
+          <div className="flex items-center">
+            <div className="w-16 h-16 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full mr-4 text-3xl">
+              {getPetIcon(pet.hashtag.split(','))}
+            </div>
+            <div>
+              <span className="block text-xl font-semibold">{pet.name}</span>
+              <span className="block text-sm text-gray-500">{pet.hashtag}</span>
+              <span className="block text-sm text-gray-400">
+                Añadido: {new Date(pet.date).toLocaleDateString()}
+              </span>
+            </div>
+          </div>
+          <div className="flex flex-col items-end">
+            <div className="flex items-center mb-2">
+              <Star className="text-yellow-400 mr-1" />
+              <span className="font-bold">{votes[pet.id] || 0}</span>
+            </div>
+            <button
+              onClick={() => handleVote(pet.id)}
+              className="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Votar
+            </button>
+          </div>
+        </div>
       ))}
     </div>
   );
