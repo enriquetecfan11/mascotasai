@@ -1,0 +1,107 @@
+[
+  {
+    "id": "1",
+    "name": "Toscano",
+    "hashtag": "#dog, #puppy, #friendly",
+    "date": "2020-01-01",
+    "votes": 15
+  },
+  {
+    "id": "2",
+    "name": "Bolito",
+    "hashtag": "#cat, #kitten, #playful",
+    "date": "2020-02-01",
+    "votes": 34
+  },
+  {
+    "id": "3",
+    "name": "Pirulito",
+    "hashtag": "#rabbit, #bunny, #fluffy",
+    "date": "2020-03-01",
+    "votes": 8
+  },
+  {
+    "id": "4",
+    "name": "Pirulo",
+    "hashtag": "#dog, #loyal, #brave",
+    "date": "2020-04-01",
+    "votes": 13
+  },
+  {
+    "id": "5",
+    "name": "Canelo",
+    "hashtag": "#cat, #graceful, #sleepy",
+    "date": "2020-05-01",
+    "votes": 25
+  },
+  {
+    "id": "6",
+    "name": "Chispa",
+    "hashtag": "#parrot, #colorful, #talkative",
+    "date": "2020-06-01",
+    "votes": 18
+  },
+  {
+    "id": "7",
+    "name": "Nina",
+    "hashtag": "#hamster, #tiny, #active",
+    "date": "2020-07-01",
+    "votes": 30
+  },
+  {
+    "id": "8",
+    "name": "Firulais",
+    "hashtag": "#dog, #guard, #strong",
+    "date": "2020-08-01",
+    "votes": 12
+  },
+  {
+    "id": "9",
+    "name": "Luna",
+    "hashtag": "#cat, #night, #elegant",
+    "date": "2020-09-01",
+    "votes": 27
+  },
+  {
+    "id": "10",
+    "name": "Rex",
+    "hashtag": "#dog, #leader, #bold",
+    "date": "2020-10-01",
+    "votes": 22
+  },
+  {
+    "id": "11",
+    "name": "Whiskers",
+    "hashtag": "#cat, #whiskers, #curious",
+    "date": "2020-11-01",
+    "votes": 17
+  },
+  {
+    "id": "12",
+    "name": "Buddy",
+    "hashtag": "#dog, #companion, #loyal",
+    "date": "2020-12-01",
+    "votes": 19
+  },
+  {
+    "id": "13",
+    "name": "Shadow",
+    "hashtag": "#cat, #mysterious, #silent",
+    "date": "2021-01-01",
+    "votes": 29
+  },
+  {
+    "id": "14",
+    "name": "Fluffy",
+    "hashtag": "#rabbit, #soft, #cute",
+    "date": "2021-02-01",
+    "votes": 21
+  },
+  {
+    "id": "15",
+    "name": "Goldie",
+    "hashtag": "#fish, #goldfish, #swimmer",
+    "date": "2021-03-01",
+    "votes": 14
+  }
+]
