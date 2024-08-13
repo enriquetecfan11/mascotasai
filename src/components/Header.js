@@ -3,7 +3,7 @@ import Logo from '../assets/mascotasai-logo.png';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 flex justify-between items-center w-full h-16 border-b border-slate-200 bg-white px-2 sm:px-4 lg:px-8 z-10">
+    <header className="sticky top-0 left-0 w-full bg-white p-6 flex justify-between items-center z-50 border-b border-slate-200">
       <div className="flex items-center">
         <Image className="w-10 h-10" src={Logo} alt="Logo" width={40} height={40} />
         <h1 className='ml-2 text-xl font-bold'><a href='/'>MascotasAi</a></h1>
