@@ -7,7 +7,14 @@ const petIcons = {
   cat: '🐱',
   rabbit: '🐰',
   parrot: '🦜',
-  // Add more as needed
+  fish: '🐠',
+  hamster: '🐹',
+  turtle: '🐢',
+  horse: '🐴',
+  snake: '🐍',
+  bird: '🐦',
+  pig: '🐷',
+  cow: '🐮',
 };
 
 const today = new Date();

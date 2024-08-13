@@ -7,8 +7,16 @@ const petIcons = {
   cat: '🐱',
   rabbit: '🐰',
   parrot: '🦜',
-  // Add more as needed
+  fish: '🐠',
+  hamster: '🐹',
+  turtle: '🐢',
+  horse: '🐴',
+  snake: '🐍',
+  bird: '🐦',
+  pig: '🐷',
+  cow: '🐮',
 };
+
 
 export default function ImprovedRankingDeIdeas() {
   const [votes, setVotes] = useState({});
