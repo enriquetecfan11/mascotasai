@@ -14,9 +14,9 @@ const SidebarRight = () => {
           </Link>
         </li>
         <li>
-          <Link href="/todas-las-ideas" legacyBehavior>
+          <Link href="/nuevas-ideas" legacyBehavior>
             <a className="block p-2 text-gray-700 hover:bg-gray-200 rounded">
-              💡 Todas las Ideas
+              💡 Nuevas Ideas
             </a>
           </Link>
         </li>
