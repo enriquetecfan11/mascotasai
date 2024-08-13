@@ -3,3 +3,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fixed {
+  position: fixed;
+}
+
+.top-20 {
+  top: 5rem; /* Adjust this value as needed */
+}
+
+.right-0 {
+  right: 0;
+}
+
+.h-[calc(100vh-5rem)] {
+  height: calc(100vh - 5rem);
+}
+
+.w-60 {
+  width: 15rem; /* Adjust this value as needed */
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.bg-blue-100 {
+  background-color: #ebf8ff;
+}
+
+.text-blue-800 {
+  color: #2c5282;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.inline-block {
+  display: inline-block;
+}
